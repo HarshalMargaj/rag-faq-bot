@@ -35,14 +35,14 @@ const HeroSection = () => {
 		<div className="h-screen ">
 			<Navbar />
 			<div className="flex flex-col gap-4 items-center justify-center h-full">
-				<div className="text-neutral-400 font-medium">
+				<div className="text-[#C2C0B6] font-medium">
 					TRUSTED BY 4,000+ TEAMS
 				</div>
-				<div className="text-white text-[64px] font-semibold text-center leading-none">
+				<div className="text-white text-[64px] font-semibold text-center leading-17">
 					Project management that <br />
 					doesn&apos;t slow you down
 				</div>
-				<div className="text-neutral-400 text-lg font-medium">
+				<div className="text-[#C2C0B6] text-lg font-medium">
 					Plan, track, and ship work with a tool built for fast-moving
 					teams.
 				</div>
@@ -54,7 +54,7 @@ const HeroSection = () => {
 						Explore more
 					</button>
 				</div>
-				<div className="flex items-center gap-4 max-w-6xl mt-10">
+				<div className="flex items-center gap-6 max-w-6xl mt-10">
 					{featureCards.map(card => (
 						<div
 							key={card.id}
@@ -64,7 +64,7 @@ const HeroSection = () => {
 							<div className="text-white font-semibold text-xl">
 								{card.title}
 							</div>
-							<div className="text-neutral-400 font-medium">
+							<div className="text-[#C2C0B6] font-medium">
 								{card.description}
 							</div>
 						</div>
