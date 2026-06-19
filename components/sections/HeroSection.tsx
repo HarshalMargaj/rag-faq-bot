@@ -6,69 +6,48 @@ import {
 	StickyNoteCheck,
 } from "lucide-react";
 
-const featureCards = [
-	{
-		id: 1,
-		title: "Task boards",
-		description:
-			"Organize tasks with flexible Kanban boards that update instantly, helping teams track progress and priorities in real time.",
-		icon: <StickyNoteCheck />,
-	},
-	{
-		id: 2,
-		title: "Reporting",
-		description:
-			"Generate detailed burndown charts, sprint insights, and velocity reports to understand team performance over time.",
-		icon: <ChartNoAxesColumn />,
-	},
-	{
-		id: 3,
-		title: "Team chat",
-		description:
-			"Collaborate seamlessly with built-in messaging, quick mentions, and contextual discussions tied directly to tasks.",
-		icon: <MessageSquare />,
-	},
-];
-
 const HeroSection = () => {
 	return (
-		<div className="h-screen ">
+		<div className="relative min-h-screen overflow-hidden bg-[#262624]">
+			{/* Background Glow Effects */}
+			<div className="absolute inset-0 -z-10">
+				<div className="absolute top-24 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-purple-500/20 blur-[140px]" />
+				<div className="absolute bottom-20 right-20 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px]" />
+				<div className="absolute bottom-10 left-10 w-[300px] h-[300px] rounded-full bg-purple-400/10 blur-[100px]" />
+			</div>
+
 			<Navbar />
-			<div className="flex flex-col gap-4 items-center justify-center h-full">
-				<div className="text-[#C2C0B6] font-medium">
+
+			<div className="max-w-7xl mx-auto px-6 min-h-screen flex flex-col items-center justify-center">
+				{/* Badge */}
+				<div className=" px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md text-sm text-[#C2C0B6] font-medium">
 					TRUSTED BY 4,000+ TEAMS
 				</div>
-				<div className="text-white text-[64px] font-semibold text-center leading-17">
-					Project management that <br />
-					doesn&apos;t slow you down
-				</div>
-				<div className="text-[#C2C0B6] text-lg font-medium">
-					Plan, track, and ship work with a tool built for fast-moving
-					teams.
-				</div>
-				<div className="flex items-center gap-4">
-					<button className="bg-white text-black rounded-xl p-2 px-4 cursor-pointer font-medium">
+
+				{/* Heading */}
+				<h1 className="mt-6 text-center text-white text-[72px] font-semibold leading-[78px] tracking-[-0.04em]">
+					Project management that
+					<br />
+					<span className="bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">
+						doesn&apos;t slow you down
+					</span>
+				</h1>
+
+				{/* Subtitle */}
+				<p className="mt-6 max-w-2xl text-center text-lg text-[#C2C0B6] leading-8">
+					Plan, track, and ship work with a modern collaboration
+					platform built for fast-moving teams and ambitious projects.
+				</p>
+
+				{/* Buttons */}
+				<div className="mt-8 flex items-center gap-4">
+					<button className="px-6 py-3 rounded-xl bg-white text-black font-semibold shadow-lg shadow-white/10 hover:scale-105 transition-all duration-300 cursor-pointer">
 						Start free trial
 					</button>
-					<button className="border border-neutral-400  text-white rounded-xl p-2 px-4 cursor-pointer font-medium">
+
+					<button className="px-6 py-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur-md text-white hover:bg-white/10 transition-all duration-300 cursor-pointer">
 						Explore more
 					</button>
-				</div>
-				<div className="flex items-center gap-6 max-w-6xl mt-10">
-					{featureCards.map(card => (
-						<div
-							key={card.id}
-							className="bg-[#30302E] p-6 rounded-xl border border-[#4A4A45] flex flex-col gap-2 h-53"
-						>
-							<div className="text-purple-400">{card.icon}</div>
-							<div className="text-white font-semibold text-xl">
-								{card.title}
-							</div>
-							<div className="text-[#C2C0B6] font-medium">
-								{card.description}
-							</div>
-						</div>
-					))}
 				</div>
 			</div>
 		</div>
