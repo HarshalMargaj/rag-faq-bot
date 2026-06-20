@@ -1,20 +1,30 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Navbar from "../Navbar";
 import {
 	ChartNoAxesColumn,
+	MessageCircle,
 	MessageSquare,
+	Send,
 	StickyNoteCheck,
+	X,
 } from "lucide-react";
+import ChatBot from "../ChatBot";
 
 const HeroSection = () => {
+	const [isOpen, setIsOpen] = useState(false);
+
 	return (
-		<div className="relative min-h-screen overflow-hidden bg-[#262624]">
-			{/* Background Glow Effects */}
-			<div className="absolute inset-0 -z-10">
-				<div className="absolute top-24 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full bg-purple-500/20 blur-[140px]" />
-				<div className="absolute bottom-20 right-20 w-[400px] h-[400px] rounded-full bg-blue-500/10 blur-[120px]" />
-				<div className="absolute bottom-10 left-10 w-[300px] h-[300px] rounded-full bg-purple-400/10 blur-[100px]" />
+		<div className="relative min-h-screen overflow-hidden">
+			<div
+				onClick={() => setIsOpen(!isOpen)}
+				className="fixed bottom-10 right-10 bg-[#30302E] p-4 rounded-full cursor-pointer"
+			>
+				<MessageCircle className="text-purple-400" />
 			</div>
+
+			{isOpen && <ChatBot isOpen={isOpen} setIsOpen={setIsOpen} />}
 
 			<Navbar />
 
