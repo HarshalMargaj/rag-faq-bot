@@ -48,7 +48,7 @@ const Navbar = () => {
 				</div>
 
 				{/* CTA */}
-				<button className="px-5 py-2 rounded-xl border border-white/10 bg-white/[0.03] text-white font-medium hover:bg-white/[0.08] hover:border-white/20 transition-all duration-300 cursor-pointer">
+				<button className="px-5 py-2 rounded-xl border border-white/10 bg-white/3 text-white font-medium hover:bg-white/8 hover:border-white/20 transition-all duration-300 cursor-pointer">
 					Sign in
 				</button>
 			</div>

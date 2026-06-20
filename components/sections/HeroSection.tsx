@@ -2,14 +2,7 @@
 
 import React, { useState } from "react";
 import Navbar from "../Navbar";
-import {
-	ChartNoAxesColumn,
-	MessageCircle,
-	MessageSquare,
-	Send,
-	StickyNoteCheck,
-	X,
-} from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import ChatBot from "../ChatBot";
 
 const HeroSection = () => {
@@ -35,10 +28,10 @@ const HeroSection = () => {
 				</div>
 
 				{/* Heading */}
-				<h1 className="mt-6 text-center text-white text-[72px] font-semibold leading-[78px] tracking-[-0.04em]">
+				<h1 className="mt-6 text-center text-white text-[72px] font-semibold leading-19.5 tracking-[-0.04em]">
 					Project management that
 					<br />
-					<span className="bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">
+					<span className="bg-linear-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">
 						doesn&apos;t slow you down
 					</span>
 				</h1>
