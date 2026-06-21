@@ -43,29 +43,28 @@ export async function POST(req: Request) {
 			.join("\n\n");
 
 		// Send the context and query to HeyRoute AI for the final answer
-		const completionRes = await fetch(
-			`${process.env.HEYROUTE_BASE_URL}/chat/completions`,
-			{
-				method: "POST",
-				headers: {
-					Authorization: `Bearer ${process.env.HEYROUTE_API_KEY}`,
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({
-					model: "gpt-5.5",
-					messages: [
-						{
-							role: "system",
-							content: `You are a helpful support assistant. Answer using ONLY this context:\n\n${context}`,
-						},
-						{ role: "user", content: query },
-					],
-				}),
+		const completionRes = await fetch(`${process.env.HEYROUTE_BASE_URL}`, {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${process.env.HEYROUTE_API_KEY}`,
+				"Content-Type": "application/json",
 			},
-		);
+			body: JSON.stringify({
+				model: "gpt-5.5",
+				messages: [
+					{
+						role: "system",
+						content: `You are a helpful support assistant. Answer using ONLY this context:\n\n${context}`,
+					},
+					{ role: "user", content: query },
+				],
+			}),
+		});
 
 		// Parse the response from HeyRoute AI
 		const completionData = await completionRes.json();
+
+		console.log(completionData);
 
 		// Extract the generated answer, with a fallback if parsing fails
 		const answer =

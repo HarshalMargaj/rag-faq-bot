@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import QueryProvider from "@/lib/queryProvider";
 
 const inter = Inter({
 	subsets: ["latin"],
@@ -27,7 +28,7 @@ export default function RootLayout({
 				className="min-h-full flex flex-col bg-[#262624]"
 				suppressHydrationWarning
 			>
-				{children}
+				<QueryProvider>{children}</QueryProvider>
 			</body>
 		</html>
 	);
