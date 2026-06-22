@@ -1,5 +1,6 @@
 import { db } from "@/lib/db";
 import { getEmbeddings } from "@/lib/embedding";
+import axios from "axios";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
@@ -43,26 +44,30 @@ export async function POST(req: Request) {
 			.join("\n\n");
 
 		// Send the context and query to HeyRoute AI for the final answer
-		const completionRes = await fetch(`${process.env.HEYROUTE_BASE_URL}`, {
-			method: "POST",
-			headers: {
-				Authorization: `Bearer ${process.env.HEYROUTE_API_KEY}`,
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
+		const completionRes = await axios.post(
+			`${process.env.HEYROUTE_BASE_URL}`,
+			{
 				model: "gpt-5.5",
 				messages: [
 					{
 						role: "system",
 						content: `You are a helpful support assistant. Answer using ONLY this context:\n\n${context}`,
 					},
-					{ role: "user", content: query },
+					{
+						role: "user",
+						content: query,
+					},
 				],
-			}),
-		});
+			},
+			{
+				headers: {
+					Authorization: `Bearer ${process.env.HEYROUTE_API_KEY}`,
+					"Content-Type": "application/json",
+				},
+			},
+		);
 
-		// Parse the response from HeyRoute AI
-		const completionData = await completionRes.json();
+		const completionData = completionRes.data;
 
 		console.log(completionData);
 
