@@ -69,11 +69,15 @@ const ChatBot = ({ setIsOpen }: ChatBotProps) => {
 					className="text-[#C2C0B6] hover:text-white cursor-pointer hover:bg-neutral-700 rounded-full p-1"
 				/>
 			</div>
-			<div className="flex-1 overflow-y-auto p-4 flex flex-col gap-3">
+			<div className="flex-1 overflow-y-auto scrollbar-track-transparent scrollbar-thumb-neutral-500 scrollbar-thin p-4 flex flex-col gap-3">
 				{messages.map((message, index) => (
 					<div
 						key={index}
-						className={`${message.role === "assistant" ? "self-start" : "self-end"} max-w-[85%] bg-neutral-800 text-white px-3 py-2 rounded-lg text-sm`}
+						className={`${
+							message.role === "assistant"
+								? "self-start bg-neutral-800"
+								: "self-end bg-purple-600"
+						} max-w-[85%] text-white px-3 py-2 rounded-lg text-sm`}
 					>
 						{message.content}
 					</div>
