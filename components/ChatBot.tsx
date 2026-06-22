@@ -13,7 +13,8 @@ const ChatBot = ({ setIsOpen }: ChatBotProps) => {
 	const [messages, setMessages] = useState([
 		{
 			role: "assistant",
-			content: "👋 Hi! Ask me anything about Streamline.",
+			content:
+				"👋 Hi! Ask me anything about Streamline. I can answer questions from our FAQ.",
 		},
 	]);
 
@@ -60,7 +61,7 @@ const ChatBot = ({ setIsOpen }: ChatBotProps) => {
 					<div>
 						<div className="text-white">Ask Streamline</div>
 						<div className="text-[#C2C0B6]">
-							Answers from our docs
+							Answers from our FAQs
 						</div>
 					</div>
 				</div>
@@ -75,7 +76,7 @@ const ChatBot = ({ setIsOpen }: ChatBotProps) => {
 						key={index}
 						className={`${
 							message.role === "assistant"
-								? "self-start bg-neutral-800"
+								? "self-start bg-neutral-700 border border-neutral-600"
 								: "self-end bg-purple-600"
 						} max-w-[85%] text-white px-3 py-2 rounded-lg text-sm`}
 					>
@@ -112,7 +113,7 @@ const ChatBot = ({ setIsOpen }: ChatBotProps) => {
 				<input
 					type="text"
 					placeholder="Ask a question..."
-					className="text-white placeholder:text-[#C2C0B6] outline-none border-none w-full text-medium"
+					className="text-white placeholder:text-neutral-300 outline-none border-none w-full text-medium"
 					onChange={e => setUserInput(e.target.value)}
 					value={userInput}
 					onKeyDown={handleKeyDown}
